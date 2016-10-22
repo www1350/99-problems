@@ -27,4 +27,17 @@ public class P32Test {
         List<Integer> primeFactors = P32.primeFactors(33);
         assertThat(primeFactors, hasItems(3, 11));
     }
+
+
+    @Test
+    public void shouldFindPrimeFactorsOf315ByStream() throws Exception {
+        List<Integer> primeFactors = P32.primeFactors_stream(315);
+        assertThat(primeFactors, hasItems(3, 3, 5, 7));
+    }
+
+    @Test
+    public void shouldFindPrimeFactorsOf33ByStream() throws Exception {
+        List<Integer> primeFactors = P32.primeFactors_stream(33);
+        assertThat(primeFactors, hasItems(3, 11));
+    }
 }
