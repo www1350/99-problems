@@ -22,7 +22,7 @@ public class P31Test {
 
     @Test
     public void shouldSay10IsNotAPrimeNumber() throws Exception {
-        boolean prime = P31.isPrime(3);
+        boolean prime = P31.isPrime(10);
         assertFalse(prime);
     }
 
