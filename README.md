@@ -819,6 +819,7 @@ public void shouldFindGrayCodeWhenNIs3() throws Exception {
 
 ## binary-trees
 
+![image](https://web.ti.bfh.ch/~hew1/informatik3/prolog/p-99/p67.gif)
 A binary tree is either empty or it is composed of a root element and two successors, which are binary trees themselves.  
 In Prolog we represent the empty tree by the atom 'nil' and the non-empty tree by the term t(X,L,R), where X denotes the root node and L and R denote the left and right subtree, respectively. 
 The example tree depicted opposite is therefore represented by the following Prolog term
@@ -1054,6 +1055,8 @@ Test your predicate in an appropriate way.
 
 ### [P64](https://github.com/www1350/99-problems/blob/master/src/main/java/com/absurd/np/binaryTrees/P64.java) **(\*\*)  Layout a binary tree (1).**
 
+![image](https://web.ti.bfh.ch/~hew1/informatik3/prolog/p-99/p64.gif)
+
 Given a binary tree as the usual Prolog term t(X,L,R) (or nil). As a preparation for drawing the tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration below.
 
 In this layout strategy, the position of a node v is obtained by the following two rules:
@@ -1077,11 +1080,16 @@ Test your predicate in an appropriate way.
 
 ### [P65](https://github.com/www1350/99-problems/blob/master/src/main/java/com/absurd/np/binaryTrees/P65.java) **(\*\*)  Layout a binary tree (2).**
 
+![image](https://web.ti.bfh.ch/~hew1/informatik3/prolog/p-99/p65.gif)
+
+
 An alternative layout method is depicted in the illustration opposite. Find out the rules and write the corresponding Prolog predicate. Hint: On a given level, the horizontal distance between neighboring nodes is constant.
 
 Use the same conventions as in problem P64 and test your predicate in an appropriate way. 
 
 ### [P66](https://github.com/www1350/99-problems/blob/master/src/main/java/com/absurd/np/binaryTrees/P66.java) **(\*\*)  Layout a binary tree (3).**
+
+![image](https://web.ti.bfh.ch/~hew1/informatik3/prolog/p-99/p66.gif)
 
 Yet another layout strategy is shown in the illustration opposite. The method yields a very compact layout while maintaining a certain symmetry in every node. Find out the rules and write the corresponding Prolog predicate. Hint: Consider the horizontal distance between a node and its successor nodes. How tight can you pack together two subtrees to construct the combined binary tree?
 
@@ -1091,6 +1099,8 @@ Which layout do you like most?
 
 
 ### [P67](https://github.com/www1350/99-problems/blob/master/src/main/java/com/absurd/np/binaryTrees/P67.java) **(\*\*)  A string representation of binary trees.**
+
+![image](https://web.ti.bfh.ch/~hew1/informatik3/prolog/p-99/p67.gif)
 
 Somebody represents binary trees as strings of the following type (see example opposite):
 ```
@@ -1130,6 +1140,9 @@ T = t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])
 
 ### [P70B](https://github.com/www1350/99-problems/blob/master/src/main/java/com/absurd/np/binaryTrees/P70B.java) **(\*\*)  Check whether a given term represents a multiway tree.**
 
+![image](https://web.ti.bfh.ch/~hew1/informatik3/prolog/p-99/p70.gif)
+
+
 Write a predicate istree/1 which succeeds if and only if its argument is a Prolog term representing a multiway tree.
 Example:
 ```
@@ -1165,6 +1178,8 @@ We define the internal path length of a multiway tree as the total sum of the pa
 Write a predicate bottom_up(Tree,Seq) which constructs the bottom-up sequence of the nodes of the multiway tree Tree. Seq should be a Prolog list. What happens if you run your predicate backwords?
 
 ### [P73](https://github.com/www1350/99-problems/blob/master/src/main/java/com/absurd/np/binaryTrees/P73.java) **(\*\*)  Lisp-like tree representation.**
+
+![image](https://web.ti.bfh.ch/~hew1/informatik3/prolog/p-99/p73.png)
 
 There is a particular notation for multiway trees in Lisp. Lisp is a prominent functional programming language, which is used primarily for artificial intelligence problems. As such it is one of the main competitors of Prolog. In Lisp almost everything is a list, just as in Prolog everything is a term. 
 
