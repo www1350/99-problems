@@ -1,7 +1,13 @@
 package com.absurd.np.LogicAndCodes;
 
 import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Collectors;
 
 /**
@@ -34,6 +40,79 @@ public class P50 {
      * @return
      */
     public static List<AbstractMap.SimpleEntry<String, String>> huffman(List<AbstractMap.SimpleEntry<String, Integer>> frList) {
-        return null;
+        List<Node<String, Integer>> nodeList = frList.stream().map(e->new Node<String, Integer>(e)).collect(Collectors.toList());
+        while(nodeList.size()>1) {
+            AbstractMap.SimpleEntry<String, Integer> min = null;
+            AbstractMap.SimpleEntry<String, Integer> semin = null;
+            int length = nodeList.size();
+            int minPos = 0;
+            int seminPos = 1;
+            if (nodeList.get(0).getValue().getValue() < nodeList.get(1).getValue().getValue()) {
+                min = nodeList.get(0).getValue();
+                semin = nodeList.get(1).getValue();
+            } else {
+                min = nodeList.get(1).getValue();
+                semin = nodeList.get(0).getValue();
+                minPos = 1;
+                seminPos = 0;
+            }
+            if (length>1)
+            for (int i = 2; i < length; i++) {
+                if (nodeList.get(i).getValue().getValue() < semin.getValue()) {
+                    if (nodeList.get(i).getValue().getValue() < min.getValue()) {
+                        semin = min;
+                        min = nodeList.get(i).getValue();
+                        seminPos = minPos;
+                        minPos = i;
+                    } else {
+                        semin = nodeList.get(i).getValue();
+                        seminPos = i;
+                    }
+                }
+            }
+            AbstractMap.SimpleEntry<String, Integer> temp = new AbstractMap.SimpleEntry<String, Integer>("T", min.getValue() + semin.getValue());
+            Node<String, Integer> neNode = new Node<>(temp);
+            neNode.setLeft(nodeList.get(minPos));
+            neNode.setRight(nodeList.get(seminPos));
+           if( seminPos<minPos) {
+               nodeList.remove(minPos);
+               nodeList.remove(seminPos);
+           }else{
+               nodeList.remove(seminPos);
+               nodeList.remove(minPos);
+           }
+            nodeList.add(neNode);
+        }
+        List<AbstractMap.SimpleEntry<String,String>>  result = hc(nodeList.get(0));
+
+        return result;
+    }
+
+    private static List<AbstractMap.SimpleEntry<String, String>> hc(Node<String, Integer> treeNode) {
+        List<AbstractMap.SimpleEntry<String, String>> result = new ArrayList<>();
+        Queue<Node<String, Integer>> queue = new LinkedBlockingQueue();
+        queue.add(treeNode);
+        while(queue.size()>0){
+            Node<String, Integer>  node =   queue.poll();
+            if ("T".equals(node.getValue().getKey())){
+                if (node.getLeft()!=null){
+                    Node left =  node.getLeft();
+                    left.setCode(node.getCode()+"0");
+                    queue.add(left);
+                }
+
+                if (node.getRight()!=null){
+                    Node right = node.getRight();
+                    right.setCode(node.getCode()+"1");
+                    queue.add(right);
+                }
+
+            }else{
+                AbstractMap.SimpleEntry<String, String> re = new AbstractMap.SimpleEntry<String, String>(node.getValue().getKey(),node.getCode());
+                result.add(re);
+            }
+        }
+
+        return result;
     }
 }
