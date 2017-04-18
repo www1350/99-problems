@@ -36,8 +36,7 @@ public class P28 {
                         )
                 ));
       return  lists.stream()
-                .sorted(
-                        (h1,h2)->Integer.compare(freMap.get(h1.size()),freMap.get(h2.size()))
+                .sorted(Comparator.comparingInt(h -> freMap.get(h.size()))
                 ).collect(Collectors.toList());
     }
 }
