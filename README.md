@@ -1,5 +1,8 @@
 # Ninety-Nine Problems in Java 8
 
+ [![Build Status](https://travis-ci.org/www1350/99-problems.svg?branch=master)](https://travis-ci.org/www1350/99-problems)
+
+# Overview
 This is an adaptation of the [Ninety-Nine Prolog Problems](https://sites.google.com/site/prologsite/prolog-problems) written by Werner Hett at the Berne University of Applied Sciences in Berne, Switzerland.
 
 From the original source:
